@@ -1,0 +1,54 @@
+{
+	"tenantId": "gj",
+	"moduleName": "ACCESSCONTROL-ROLEACTIONS",
+	"roleactions": [
+		{
+			"rolecode": "ADVOCATE",
+			"actionid": "1001",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "NYAY_MITRA",
+			"actionid": "1002",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "ADVOCATE",
+			"actionid": "1003",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "NYAY_MITRA",
+			"actionid": "1003",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "ADVOCATE_CLERK",
+			"actionid": "1004",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "NYAY_MITRA",
+			"actionid": "1005",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "ADVOCATE_CLERK",
+			"actionid": "1006",
+			"actioncode": "",
+			"tenantId": "gj"
+		},
+		{
+			"rolecode": "NYAY_MITRA",
+			"actionid": "1006",
+			"actioncode": "",
+			"tenantId": "gj"
+		}
+	]
+}

@@ -1,0 +1,39 @@
+{
+	"tenantId": "gj",
+	"moduleName": "tenant",
+	"tenants": [
+		{
+			"code": "gj",
+			"name": "Gujarat",
+			"description": "Gujarat",
+			"logoId": "https://egov-dev-assets.s3.ap-south-1.amazonaws.com/pucar/govt-of-ind-logo.png",
+			"imageId": null,
+			"domainUrl": "www.stae.gov.in",
+			"type": "CITY",
+			"twitterUrl": null,
+			"facebookUrl": null,
+			"emailId": "gj.state@gmail.com",
+			"OfficeTimings": {
+				"Mon - Fri": "9:00 AM - 5:00 PM"
+			},
+			"city": {
+				"name": "Surat",
+				"localName": null,
+				"districtCode": null,
+				"districtName": null,
+				"regionName": null,
+				"ulbGrade": "ST",
+				"longitude": 72.823120,
+				"latitude": 21.203890,
+				"shapeFileLocation": null,
+				"captcha": null,
+				"code": "25",
+				"ddrName": "Surat-MC"
+			},
+			"address": "Surat Municipal Corporation - Gordhandas Chokhawala Marg, Muglisara, Surat - 395003",
+			"contactNumber": "+91-261-2423750",
+			"pdfHeader": "GJ_PDF_HEADER",
+			"pdfContactDetails": "GJ_CONTACT_DETAILS"
+		}
+	]
+}

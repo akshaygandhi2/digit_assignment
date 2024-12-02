@@ -1,0 +1,64 @@
+serviceMaps:
+  serviceName: adv-services
+  mappings:
+    - version: 1.0
+      description: Persists advocate details in tables
+      fromTopic: save-adv-registration
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO eg_advocate_registration(id, tenant_id, application_number, bar_registration_number, advocate_type, organisation_id, individual_id, is_active, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: advocates.*
+          jsonMaps:
+            - jsonPath: $.advocates.*.id
+            - jsonPath: $.advocates.*.tenantId
+            - jsonPath: $.advocates.*.applicationNumber
+            - jsonPath: $.advocates.*.barRegistrationNumber
+            - jsonPath: $.advocates.*.advocateType
+            - jsonPath: $.advocates.*.organisationID
+            - jsonPath: $.advocates.*.individualId
+            - jsonPath: $.advocates.*.isActive
+            - jsonPath: $.advocates.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.advocates.*.auditDetails.createdBy
+            - jsonPath: $.advocates.*.auditDetails.lastModifiedBy
+            - jsonPath: $.advocates.*.auditDetails.createdTime
+            - jsonPath: $.advocates.*.auditDetails.lastModifiedTime
+
+        - query: INSERT INTO eg_adv_document(id, tenant_id, document_type, file_store, document_uid, advocate_id, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: advocates.*.documents.*
+          jsonMaps:
+            - jsonPath: $.advocates.*.documents.*.id
+            - jsonPath: $.advocates.*.documents.*.tenantId
+            - jsonPath: $.advocates.*.documents.*.documentType
+            - jsonPath: $.advocates.*.documents.*.fileStore
+            - jsonPath: $.advocates.*.documents.*.documentUid
+            - jsonPath: $.advocates[*][?({id} in @.documents[*].id)].id
+            - jsonPath: $.advocates.*.documents.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.advocates[*][?({id} in @.documents[*].id)].auditDetails.createdBy
+            - jsonPath: $.advocates[*][?({id} in @.documents[*].id)].auditDetails.lastModifiedBy
+            - jsonPath: $.advocates[*][?({id} in @.documents[*].id)].auditDetails.createdTime
+            - jsonPath: $.advocates[*][?({id} in @.documents[*].id)].auditDetails.lastModifiedTime
+
+    - version: 1.0
+      description: Update advocate details in table
+      fromTopic: update-adv-registration
+      isTransaction: true
+      queryMaps:
+
+        - query: UPDATE eg_advocate_registration SET is_active = ?, additional_details = ?, last_modified_by = ?, last_modified_time = ? WHERE id = ?;
+          basePath: advocates.*
+          jsonMaps:
+            - jsonPath: $.advocates.*.isActive
+            - jsonPath: $.advocates.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.advocates.*.auditDetails.lastModifiedBy
+            - jsonPath: $.advocates.*.auditDetails.lastModifiedTime
+            - jsonPath: $.advocates.*.id

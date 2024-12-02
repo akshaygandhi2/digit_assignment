@@ -1,0 +1,38 @@
+build
+.factorypath
+/target/
+*.class
+/mvnw
+/mvnw.cmd
+
+# Eclipse
+bin
+.project
+.classpath
+.settings
+.metadata
+
+# Intellij
+out
+.idea/*
+*.iml
+
+# VS code
+.vscode/*
+
+# virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# dotenv or direnv
+.env
+.envrc
+
+# JavaScript
+node_modules
+
+# Miscellaneous
+*.log
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/

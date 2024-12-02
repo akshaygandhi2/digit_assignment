@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "72517a49-bebc-43df-9e5a-30c15bbd7524",
+		"name": "digit_assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39841289"
+	},
+	"item": [
+		{
+			"name": "Create Advocate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"advocates\": [\n        {\n            \"tenantId\": \"gj\",\n            \"barRegistrationNumber\": \"GUJ123452024\",\n            \"advocateType\": \"PROSECUTOR\",\n            \"organisationID\": null,\n            \"individualId\": \"IND-2024-05-30-000493\",\n            \"additionalDetails\": {\n                \"name\": \"Akshay Gandhi\"\n            },\n            \"documents\": [\n                {\n                    \"documentType\": \"BAR_COUNCIL_ID\",\n                    \"fileStore\": \"b0c5a846-c75a-11ea-87d0-0242ac130003\",\n                    \"documentUid\": \"uid-001\",\n                    \"additionalDetails\": {\n                        \"name\": \"Akshay Gandhi\"\n                    }\n                }\n            ],\n            \"workflow\": {\n                \"action\": \"REGISTER\",\n                \"assignes\": [],\n                \"comments\": \"Applying for Advocate Registration\",\n                \"documents\": [\n                    {\n                        \"documentType\": \"PDF\",\n                        \"fileStoreId\": \"b0c5a846-c75a-11ea-87d0-0242ac130003\",\n                        \"documentUid\": \"\",\n                        \"additionalDetails\": {}\n                    }\n                ]\n            }\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/v1/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Advocate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"NYAY_MITRA\",\n            \"tenantId\": \"gj\",\n            \"roles\": [ \n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Nyay Mitra\",\n                    \"code\": \"NYAY_MITRA\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"advocates\": [\n        {\n            \"id\": \"58bacdba-b3f6-46fb-8ac1-c991c773056b\",\n            \"tenantId\": \"gj\",\n            \"applicationNumber\": \"GJ-ADV-2024-11-29-000030\",\n            \"barRegistrationNumber\": \"GUJ123452024\",\n            \"advocateType\": \"PROSECUTOR\",\n            \"organisationID\": null,\n            \"individualId\": \"IND-2024-05-30-000493\",\n            \"isActive\": true,\n            \"additionalDetails\": {\n                \"name\": \"Akshay Gandhi\",\n                \"age\": 29\n            },\n            \"documents\": [\n                {\n                    \"documentType\": \"BAR_COUNCIL_ID\",\n                    \"fileStore\": \"b0c5a846-c75a-11ea-87d0-0242ac130003\",\n                    \"documentUid\": \"uid-001\",\n                    \"additionalDetails\": {\n                        \"name\": \"Akshay Gandhi\"\n                    }\n                }\n            ],\n            \"workflow\": {\n                \"action\": \"REGISTER\",\n                \"assignes\": [],\n                \"comments\": \"Applying for Advocate Registration\",\n                \"documents\": [\n                    {\n                        \"documentType\": \"PDF\",\n                        \"fileStoreId\": \"b0c5a846-c75a-11ea-87d0-0242ac130003\",\n                        \"documentUid\": \"\",\n                        \"additionalDetails\": {}\n                    }\n                ]\n            }\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/v1/_update"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Nyay Mitra\",\n                    \"code\": \"NYAY_MITRA\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"criteria\" : [\n        {\n            \"id\": \"58bacdba-b3f6-46fb-8ac1-c991c773056b\",\n            \"barRegistrationNumber\": \"GUJ123452024\",\n            \"applicationNumber\": \"GJ-ADV-2024-11-29-000030\"\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/v1/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Clerk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 192,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE_CLERK\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate Clerk\",\n                    \"code\": \"ADVOCATE_CLERK\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"clerks\": [\n        {\n            \"tenantId\": \"gj\",\n            \"stateRegnNumber\": \"GUJ12352024\",\n            \"individualId\": \"IND-2024-11-29-000494\",\n            \"additionalDetails\": {\n                \"name\": \"Gandhi Akshay\"\n            },\n            \"documents\": [\n                {\n                    \"documentType\": \"BAR_COUNCIL_ID\",\n                    \"fileStore\": \"b0c5a856-c76a-11ea-87d1-0242ac130003\",\n                    \"documentUid\": \"uid-002\",\n                    \"additionalDetails\": {\n                        \"name\": \"Gandhi Akshay\"\n                    }\n                }\n            ],\n            \"workflow\": {\n                \"action\": \"REGISTER\",\n                \"assignes\": [],\n                \"comments\": \"Applying for Advocate Clerk Registration\",\n                \"documents\": [\n                    {\n                        \"documentType\": \"BAR_COUNCIL_ID\",\n                        \"fileStoreId\": \"b0c5a856-c76a-11ea-87d1-0242ac130003\",\n                        \"documentUid\": \"uid-002\",\n                        \"additionalDetails\": {\n                            \"name\": \"Gandhi Akshay\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/clerk/v1/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Advocate Clerk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 192,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"NYAY_MITRA\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Nyay Mitra\",\n                    \"code\": \"NYAY_MITRA\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"clerks\": [\n        {\n            \"id\": \"a2458cd2-a372-4276-ab95-6213daed5919\",\n            \"tenantId\": \"gj\",\n            \"applicationNumber\": \"GJ-ADV-CLERK-2024-11-29-000004\",\n            \"stateRegnNumber\": \"GUJ12352024\",\n            \"individualId\": \"IND-2024-11-29-000494\",\n            \"isActive\": true,\n            \"additionalDetails\": {\n                \"name\": \"Gandhi Akshay\"\n            },\n            \"documents\": [\n                {\n                    \"documentType\": \"BAR_COUNCIL_ID\",\n                    \"fileStore\": \"b0c5a856-c76a-11ea-87d1-0242ac130003\",\n                    \"documentUid\": \"uid-002\",\n                    \"additionalDetails\": {\n                        \"name\": \"Gandhi Akshay\"\n                    }\n                }\n            ],\n            \"workflow\": {\n                \"action\": \"REGISTER\",\n                \"assignes\": [],\n                \"comments\": \"Applying for Advocate Clerk Registration\",\n                \"documents\": [\n                    {\n                        \"documentType\": \"BAR_COUNCIL_ID\",\n                        \"fileStoreId\": \"b0c5a856-c76a-11ea-87d1-0242ac130003\",\n                        \"documentUid\": \"uid-002\",\n                        \"additionalDetails\": {\n                            \"name\": \"Gandhi Akshay\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/clerk/v1/_update"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate Clerk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 192,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE_CLERK\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                {\n                    \"name\": \"Advocate Clerk\",\n                    \"code\": \"ADVOCATE_CLERK\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Nyay Mitra\",\n                    \"code\": \"NYAY_MITRA\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"criteria\" : [\n        {\n            \"id\": \"a2458cd2-a372-4276-ab95-6213daed5919\",\n            \"stateRegnNumber\": \"GUJ12352024\",\n            \"applicationNumber\": \"GJ-ADV-CLERK-2024-11-29-000004\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/digit_assignment/advocate/clerk/v1/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Individual",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"authToken\": \"81980555-67a7-472d-ba95-c7dfffbcea21\"\n    },\n    \"Individual\": {\n        \"individualId\": [\n            \"IND-2024-05-30-000493\",\n            \"IND-2024-11-29-000494\"\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/individual/v1/_search?limit=100&offset=0&tenantId=gj&includeDeleted=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"individual",
+						"v1",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "tenantId",
+							"value": "gj"
+						},
+						{
+							"key": "includeDeleted",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Id generation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"idgen-service\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"idRequests\": [\n        {\n            \"tenantId\": \"gj\",\n            \"idName\": \"adv.registrationid\"\n        },\n        {\n            \"tenantId\": \"gj\",\n            \"idName\": \"adv.clerk.registrationid\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8088/egov-idgen/id/_generate"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Workflow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"BusinessService\": [\n\t\t{\n\t\t\t\"tenantId\": \"gj\",\n\t\t\t\"businessService\": \"ADR\",\n\t\t\t\"business\": \"adv-service\",\n\t\t\t\"businessServiceSla\": 259200000,\n\t\t\t\"states\": [\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": null,\n\t\t\t\t\t\"applicationStatus\": null,\n\t\t\t\t\t\"docUploadRequired\": true,\n\t\t\t\t\t\"isStartState\": true,\n\t\t\t\t\t\"isTerminateState\": false,\n\t\t\t\t\t\"isStateUpdatable\": true,\n\t\t\t\t\t\"actions\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"REGISTER\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REGISTRATION_REQUESTED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"ADVOCATE\",\n\t\t\t\t\t\t\t\t\"LITIGANT\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REGISTRATION_REQUESTED\",\n\t\t\t\t\t\"applicationStatus\": \"User Registration Requested\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": false,\n\t\t\t\t\t\"isStateUpdatable\": false,\n\t\t\t\t\t\"actions\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"APPROVE\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REGISTERED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"SYSTEM\",\n\t\t\t\t\t\t\t\t\"NYAY_MITRA\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"REJECT\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REJECTED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"NYAY_MITRA\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REGISTERED\",\n\t\t\t\t\t\"applicationStatus\": \"User Registered\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": true,\n\t\t\t\t\t\"isStateUpdatable\": false\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REJECTED\",\n\t\t\t\t\t\"applicationStatus\": \"User Rejected\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": true,\n\t\t\t\t\t\"isStateUpdatable\": false\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Clerk Workflow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    },\n    \"BusinessService\": [\n\t\t{\n\t\t\t\"tenantId\": \"gj\",\n\t\t\t\"businessService\": \"ADCR\",\n\t\t\t\"business\": \"adv-service\",\n\t\t\t\"businessServiceSla\": 259200000,\n\t\t\t\"states\": [\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": null,\n\t\t\t\t\t\"applicationStatus\": null,\n\t\t\t\t\t\"docUploadRequired\": true,\n\t\t\t\t\t\"isStartState\": true,\n\t\t\t\t\t\"isTerminateState\": false,\n\t\t\t\t\t\"isStateUpdatable\": true,\n\t\t\t\t\t\"actions\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"REGISTER\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REGISTRATION_REQUESTED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"ADVOCATE_CLERK\",\n\t\t\t\t\t\t\t\t\"LITIGANT\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REGISTRATION_REQUESTED\",\n\t\t\t\t\t\"applicationStatus\": \"User Registration Requested\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": false,\n\t\t\t\t\t\"isStateUpdatable\": false,\n\t\t\t\t\t\"actions\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"APPROVE\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REGISTERED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"SYSTEM\",\n\t\t\t\t\t\t\t\t\"NYAY_MITRA\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"action\": \"REJECT\",\n\t\t\t\t\t\t\t\"nextState\": \"USER_REJECTED\",\n\t\t\t\t\t\t\t\"roles\": [\n\t\t\t\t\t\t\t\t\"NYAY_MITRA\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REGISTERED\",\n\t\t\t\t\t\"applicationStatus\": \"User Registered\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": true,\n\t\t\t\t\t\"isStateUpdatable\": false\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"sla\": null,\n\t\t\t\t\t\"state\": \"USER_REJECTED\",\n\t\t\t\t\t\"applicationStatus\": \"User Rejected\",\n\t\t\t\t\t\"docUploadRequired\": false,\n\t\t\t\t\t\"isStartState\": false,\n\t\t\t\t\t\"isTerminateState\": true,\n\t\t\t\t\t\"isStateUpdatable\": false\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate Workflow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=gj&businessServices=ADR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8280",
+					"path": [
+						"egov-workflow-v2",
+						"egov-wf",
+						"businessservice",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "gj"
+						},
+						{
+							"key": "businessServices",
+							"value": "ADR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate Clerk Workflow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestInfo\": {\n        \"apiId\": \"adv-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{token}}\",\n        \"userInfo\": {\n            \"id\": 191,\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": \"akshay\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"9996301590\",\n            \"emailId\": null,\n            \"type\": \"ADVOCATE\",\n            \"tenantId\": \"gj\",\n            \"roles\": [\n                 {\n                    \"name\": \"Advocate\",\n                    \"code\": \"ADVOCATE\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"Litigant\",\n                    \"code\": \"LITIGANT\",\n                    \"tenantId\": \"gj\"\n                },\n                {\n                    \"name\": \"System\",\n                    \"code\": \"SYSTEM\",\n                    \"tenantId\": \"gj\"\n                }\n            ],\n            \"active\": true\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=gj&businessServices=ADCR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8280",
+					"path": [
+						"egov-workflow-v2",
+						"egov-wf",
+						"businessservice",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "gj"
+						},
+						{
+							"key": "businessServices",
+							"value": "ADCR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Type Schema",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null,\n            \"roles\": null\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"gj\",\n        \"code\": \"Advocate.AdvocateType\",\n        \"description\": \"Advocate Type\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"title\": \"Generated schema for Root\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"number\"\n                },\n                \"type\": {\n                    \"type\": \"string\"\n                },\n                \"isactive\": {\n                    \"type\": \"boolean\"\n                }\n            },\n            \"required\": [\n                \"id\",\n                \"type\"\n            ],\n            \"x-unique\": [\n                \"id\",\n                \"type\"\n            ]\n        },\n        \"isActive\": true\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/schema/v1/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Identifier Type Schema",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null,\n            \"roles\": null\n        }\n    },\n    \"SchemaDefinition\": {\n        \"tenantId\": \"gj\",\n        \"code\": \"Advocate.IdentifierType\",\n        \"description\": \"Identifier Type\",\n        \"definition\": {\n            \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n            \"title\": \"Generated schema for Root\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"number\"\n                },\n                \"type\": {\n                    \"type\": \"string\"\n                },\n                \"isactive\": {\n                    \"type\": \"boolean\"\n                }\n            },\n            \"required\": [\n                \"id\",\n                \"type\"\n            ],\n            \"x-unique\": [\n                \"id\",\n                \"type\"\n            ]\n        },\n        \"isActive\": true\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/schema/v1/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Type Prosecutor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"gj\",\n        \"schemaCode\": \"Advocate.AdvocateType\",\n        \"data\": {\n            \"id\": 1,\n            \"type\": \"PROSECUTOR\",\n            \"active\": true\n        },\n        \"isActive\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/v2/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advocate Type Public Defender",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null\n        }\n    },\n    \"Mdms\": {\n        \"tenantId\": \"gj\",\n        \"schemaCode\": \"Advocate.AdvocateType\",\n        \"data\": {\n            \"id\": 1,\n            \"type\": \"PUBLIC DEFENDER\",\n            \"active\": true\n        },\n        \"isActive\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/v2/_create"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate Type v1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null\n        }\n    },\n    \"MdmsCriteria\": {\n        \"tenantId\": \"gj\",\n        \"moduleDetails\": [\n            {\n                \"moduleName\": \"Advocate\",\n                \"masterDetails\": [\n                    {\n                        \"name\": \"AdvocateType\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/v1/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Advocate Type v2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{authToken}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"uuid\": \"703af68b-2f01-479d-8e21-416e50a95a32\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null\n        }\n    },\n    \"MdmsCriteria\": {\n        \"tenantId\": \"gj\",\n        \"schemaCode\": \"Advocate.AdvocateType\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8094/mdms-v2/v2/_search"
+			},
+			"response": []
+		}
+	]
+}

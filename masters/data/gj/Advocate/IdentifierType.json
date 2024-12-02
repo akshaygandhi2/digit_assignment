@@ -1,0 +1,36 @@
+{
+	"tenantId": "gj",
+	"moduleName": "Advocate",
+	"IdentifierType": [
+		{
+			"id": 1,
+			"type": "AADHAAR_CARD",
+			"active": true
+		},
+		{
+			"id": 2,
+			"type": "PAN_CARD",
+			"active": true
+		},
+		{
+			"id": 3,
+			"type": "VOTER_ID",
+			"active": true
+		},
+		{
+			"id": 4,
+			"type": "DRIVING_LICENSE",
+			"active": true
+		},
+		{
+			"id": 5,
+			"type": "PASSPORT",
+			"active": true
+		},
+		{
+			"id": 6,
+			"type": "BAR_COUNCIL_ID",
+			"active": true
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"tenantId": "gj",
+	"moduleName": "Advocate",
+	"AdvocateType": [
+		{
+			"id": 1,
+			"type": "PROSECUTOR",
+			"active": true
+		},
+		{
+			"id": 2,
+			"type": "PUBLIC DEFENDER",
+			"active": true
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"tenantId": "gj",
+	"moduleName": "common-masters",
+	"IdFormat": [
+		{
+			"format": "[TENANT_ID]-ADV-[cy:yyyy-MM-dd]-[SEQ_ADV_REG_ID]",
+			"idname": "adv.registrationid"
+		},
+		{
+			"format": "[TENANT_ID]-ADV-CLERK-[cy:yyyy-MM-dd]-[SEQ_ADV_CLERK_REG_ID]",
+			"idname": "adv.clerk.registrationid"
+		}
+	]
+}

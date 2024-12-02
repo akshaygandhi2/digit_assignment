@@ -1,0 +1,31 @@
+{
+	"tenantId": "gj",
+	"moduleName": "ACCESSCONTROL-ROLES",
+	"roles": [
+		{
+			"code": "ADVOCATE",
+			"name": "Advocate",
+			"description": "Advocate"
+		},
+		{
+			"code": "ADVOCATE_CLERK",
+			"name": "Advocate Clerk",
+			"description": "Advocate Clerk"
+		},
+		{
+			"code": "LITIGANT",
+			"name": "Litigant",
+			"description": "Litigant"
+		},
+		{
+			"code": "SYSTEM",
+			"name": "System",
+			"description": "System"
+		},
+		{
+			"code": "NYAY_MITRA",
+			"name": "Nyay Mitra",
+			"description": "Nyay Mitra"
+		}
+	]
+}

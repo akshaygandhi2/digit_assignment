@@ -1,0 +1,22 @@
+{
+	"Advocate": {
+		"AdvocateType": {
+			"masterName": "AdvocateType",
+			"moduleDefinition": null,
+			"isStateLevel": true,
+			"uniqueKeys": [
+				"$.id",
+				"$.type"
+			]
+		},
+		"IdentifierType": {
+			"masterName": "IdentifierType",
+			"moduleDefinition": null,
+			"isStateLevel": true,
+			"uniqueKeys": [
+				"$.id",
+				"$.type"
+			]
+		}
+	}
+}
