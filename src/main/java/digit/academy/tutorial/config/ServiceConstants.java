@@ -45,6 +45,7 @@ public class ServiceConstants {
 	public static final String THE_BUSINESS_SERVICE = "The businessService ";
 	public static final String NOT_FOUND = " is not found";
 	public static final String TENANTID = "?tenantId=";
+	public static final String BUSINESS_IDS = "&businessIds=";
 	public static final String BUSINESS_SERVICES = "&businessServices=";
 
 }

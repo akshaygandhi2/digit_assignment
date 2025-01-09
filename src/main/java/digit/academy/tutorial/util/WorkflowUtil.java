@@ -1,6 +1,6 @@
 package digit.academy.tutorial.util;
 
-import static digit.academy.tutorial.config.ServiceConstants.BUSINESS_SERVICES;
+import static digit.academy.tutorial.config.ServiceConstants.BUSINESS_IDS;
 import static digit.academy.tutorial.config.ServiceConstants.BUSINESS_SERVICE_NOT_FOUND;
 import static digit.academy.tutorial.config.ServiceConstants.FAILED_TO_PARSE_BUSINESS_SERVICE_SEARCH;
 import static digit.academy.tutorial.config.ServiceConstants.NOT_FOUND;
@@ -26,7 +26,6 @@ import org.egov.common.contract.workflow.ProcessInstanceRequest;
 import org.egov.common.contract.workflow.ProcessInstanceResponse;
 import org.egov.common.contract.workflow.State;
 import org.egov.tracer.model.CustomException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -34,6 +33,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import digit.academy.tutorial.config.Configuration;
 import digit.academy.tutorial.repository.ServiceRequestRepository;
+import digit.academy.tutorial.web.models.AdvocateClerkRequest;
+import digit.academy.tutorial.web.models.AdvocateRequest;
 
 @Service
 public class WorkflowUtil {
@@ -42,11 +43,63 @@ public class WorkflowUtil {
 	private final ObjectMapper mapper;
 	private final Configuration configs;
 
-	@Autowired
 	public WorkflowUtil(ServiceRequestRepository repository, ObjectMapper mapper, Configuration configs) {
 		this.repository = repository;
 		this.mapper = mapper;
 		this.configs = configs;
+	}
+
+	/**
+	 * Updates the workflow status for the given advocate request.
+	 * This method checks if the workflow feature is enabled in the configuration. If enabled,
+	 * it iterates over the list of advocates in the provided request, updating the workflow status
+	 * for each advocate.
+	 *
+	 * @param advocateRequest The request containing advocate details and metadata.
+	 */
+	public void updateAdvocateWorkflowStatus(AdvocateRequest advocateRequest) {
+		if (Boolean.FALSE.equals(configs.getIsWorkflowEnabled())) {
+			return;
+		}
+		advocateRequest.getAdvocates().forEach(advocate -> {
+			updateWorkflowStatus(advocateRequest.getRequestInfo(), advocate.getTenantId(),
+					advocate.getApplicationNumber(), "ADR", advocate.getWorkflow(), configs.getModuleName());
+		});
+	}
+
+	/**
+	 * Updates the workflow status for the given advocate clerk request.
+	 * Similar to the updateAdvocateWorkflowStatus method, it checks if the workflow feature is enabled.
+	 * If enabled, it updates the workflow status for each advocate clerk in the provided request.
+	 *
+	 * @param clerkRequest The request containing advocate clerk details and metadata.
+	 */
+	public void updateAdvocateClerkWorkflowStatus(AdvocateClerkRequest clerkRequest) {
+		if (Boolean.FALSE.equals(configs.getIsWorkflowEnabled())) {
+			return;
+		}
+		clerkRequest.getClerks().forEach(advocate -> {
+			updateWorkflowStatus(clerkRequest.getRequestInfo(), advocate.getTenantId(), advocate.getApplicationNumber(),
+					"ADCR", advocate.getWorkflow(), configs.getModuleName());
+		});
+	}
+
+	/**
+	 * Retrieves the workflow details for a list of business IDs (application numbers).
+	 * This method checks if the workflow feature is enabled. If enabled, it fetches the process instances
+	 * corresponding to the provided business IDs and returns the associated workflow details.
+	 *
+	 * @param requestInfo Request metadata containing details like user info.
+	 * @param tenantId The tenant ID under which the workflows are being fetched.
+	 * @param businessIds A list of business IDs (e.g., application numbers) for which workflows are to be retrieved.
+	 * @return A map containing business IDs as keys and their respective workflow details as values.
+	 */
+	public Map<String, Workflow> getWorkflows(RequestInfo requestInfo, String tenantId, List<String> businessIds) {
+		if (Boolean.FALSE.equals(configs.getIsWorkflowEnabled())) {
+			return Collections.emptyMap();
+		}
+		List<ProcessInstance> processInstance = getProcessInstances(requestInfo, tenantId, businessIds);
+		return getWorkflow(processInstance);
 	}
 
 	/**
@@ -101,19 +154,36 @@ public class WorkflowUtil {
 	}
 
 	/**
-	 * Creates url for search based on given tenantId and businessServices
+	 * Creates url for search based on given tenantId and businessIds
 	 * 
 	 * @param tenantId
-	 * @param businessService
+	 * @param businessIds
 	 * @return
 	 */
-	private StringBuilder getSearchURLWithParams(String tenantId, String businessService) {
+	private StringBuilder getSearchURLWithParams(String tenantId, List<String> businessIds) {
 		StringBuilder url = new StringBuilder(configs.getWfHost());
 		url.append(configs.getWfProcessInstanceSearchPath());
 		url.append(TENANTID);
 		url.append(tenantId);
-		url.append(BUSINESS_SERVICES);
-		url.append(businessService);
+		url.append(BUSINESS_IDS);
+		url.append(businessIds);
+		return url;
+	}
+
+	/**
+	 * Creates url for search based on given tenantId and businessServices
+	 * 
+	 * @param tenantId
+	 * @param businessServices
+	 * @return
+	 */
+	private StringBuilder getSearchURLWithParams(String tenantId, String businessServices) {
+		StringBuilder url = new StringBuilder(configs.getWfHost());
+		url.append(configs.getWfProcessInstanceSearchPath());
+		url.append(TENANTID);
+		url.append(tenantId);
+		url.append(BUSINESS_IDS);
+		url.append(businessServices);
 		return url;
 	}
 
@@ -190,7 +260,8 @@ public class WorkflowUtil {
 	 * @param businessId
 	 * @return
 	 */
-	public ProcessInstance getCurrentProcessInstance(RequestInfo requestInfo, String tenantId, String businessId) {
+	public List<ProcessInstance> getProcessInstances(RequestInfo requestInfo, String tenantId,
+			List<String> businessId) {
 
 		RequestInfoWrapper requestInfoWrapper = RequestInfoWrapper.builder().requestInfo(requestInfo).build();
 
@@ -205,11 +276,10 @@ public class WorkflowUtil {
 			throw new CustomException(PARSING_ERROR, FAILED_TO_PARSE_BUSINESS_SERVICE_SEARCH);
 		}
 
-		if (response != null && !CollectionUtils.isEmpty(response.getProcessInstances())
-				&& response.getProcessInstances().get(0) != null)
-			return response.getProcessInstances().get(0);
-
-		return null;
+		if (response != null && !CollectionUtils.isEmpty(response.getProcessInstances())) {
+			return response.getProcessInstances();
+		}
+		return Collections.emptyList();
 	}
 
 	/**
