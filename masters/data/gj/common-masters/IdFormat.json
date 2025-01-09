@@ -3,11 +3,11 @@
 	"moduleName": "common-masters",
 	"IdFormat": [
 		{
-			"format": "[TENANT_ID]-ADV-[cy:yyyy-MM-dd]-[SEQ_ADV_REG_ID]",
+			"format": "ADVOC_[SEQ_ADV_REG_ID]_[yyyy]",
 			"idname": "adv.registrationid"
 		},
 		{
-			"format": "[TENANT_ID]-ADV-CLERK-[cy:yyyy-MM-dd]-[SEQ_ADV_CLERK_REG_ID]",
+			"format": "ADVOC_CLERK_[SEQ_ADV_CLERK_REG_ID]_[yyyy]",
 			"idname": "adv.clerk.registrationid"
 		}
 	]

@@ -1,0 +1,16 @@
+{
+	"tenantId": "gj",
+	"moduleName": "Advocate",
+	"AdvocateType": [
+		{
+			"code": "ADVOCATE",
+			"displayName": "Advocate",
+			"isActive": true
+		},
+		{
+			"code": "ADVOCATE CLERK",
+			"displayName": "Advocate Clerk",
+			"isActive": true
+		}
+	]
+}
