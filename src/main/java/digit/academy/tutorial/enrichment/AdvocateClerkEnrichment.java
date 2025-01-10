@@ -6,7 +6,6 @@ import org.egov.common.contract.models.AuditDetails;
 import org.egov.common.contract.models.Document;
 import org.egov.common.utils.AuditDetailsEnrichmentUtil;
 import org.egov.common.utils.UUIDEnrichmentUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -23,12 +22,18 @@ public class AdvocateClerkEnrichment {
 	private final IdgenUtil idegenUtil;
 	private final Configuration config;
 
-	@Autowired
 	public AdvocateClerkEnrichment(IdgenUtil idegenUtil, Configuration config) {
 		this.idegenUtil = idegenUtil;
 		this.config = config;
 	}
 
+	/**
+     * Enriches the advocate clerk registration request by generating application numbers, 
+     * enriching audit details, UUIDs, and setting default values for clerk data.
+     * It also processes any associated documents.
+     *
+     * @param advocateClerkRequest the request containing advocate clerk details to be enriched
+     */
 	public void enrichAdvocateClerkRegistration(AdvocateClerkRequest advocateClerkRequest) {
 		List<AdvocateClerk> clerks = advocateClerkRequest.getClerks();
 
@@ -36,8 +41,8 @@ public class AdvocateClerkEnrichment {
 		List<String> advocateClerkIdList = idegenUtil.getIdList(advocateClerkRequest.getRequestInfo(),
 				clerks.get(0).getTenantId(), config.getAdvClerkIdName(), config.getAdvClerkIdFormat(), clerks.size());
 
-		int index = 0;
-		for (AdvocateClerk advocateClerk : clerks) {
+		for (int i = 0; i < clerks.size(); i++) {
+			AdvocateClerk advocateClerk = clerks.get(i);
 			// Enrich audit details
 			AuditDetails auditDetails = AuditDetailsEnrichmentUtil.prepareAuditDetails(advocateClerk.getAuditDetails(),
 					advocateClerkRequest.getRequestInfo(), Boolean.TRUE);
@@ -47,20 +52,24 @@ public class AdvocateClerkEnrichment {
 			UUIDEnrichmentUtil.enrichRandomUuid(advocateClerk, "id");
 
 			// Enrich application number from Idgen
-			advocateClerk.setApplicationNumber(advocateClerkIdList.get(index++));
+			advocateClerk.setApplicationNumber(advocateClerkIdList.get(i));
 
 			// Setting false unless the application is approved
 			advocateClerk.setIsActive(false);
 
 			List<Document> documents = advocateClerk.getDocuments();
 			if (!CollectionUtils.isEmpty(documents)) {
-				documents.forEach(document -> {
-					UUIDEnrichmentUtil.enrichRandomUuid(document, "id");
-				});
+				documents.forEach(document -> UUIDEnrichmentUtil.enrichRandomUuid(document, "id"));
 			}
 		}
 	}
 
+	/**
+     * Enriches the advocate clerk registration update request by updating audit details, 
+     * particularly lastModifiedTime and lastModifiedBy fields.
+     *
+     * @param clerkRequest the request containing advocate clerk details to be updated
+     */
 	public void enrichAdvocateClerkRegistrationUpdate(AdvocateClerkRequest clerkRequest) {
 		// Enrich lastModifiedTime and lastModifiedBy in case of update
 		AdvocateClerk clerk = clerkRequest.getClerks().get(0);
