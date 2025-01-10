@@ -27,11 +27,10 @@ serviceMaps:
             - jsonPath: $.advocates.*.auditDetails.createdTime
             - jsonPath: $.advocates.*.auditDetails.lastModifiedTime
 
-        - query: INSERT INTO eg_adv_document(id, tenant_id, document_type, file_store, document_uid, advocate_id, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_adv_document(id, document_type, file_store, document_uid, advocate_id, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: advocates.*.documents.*
           jsonMaps:
             - jsonPath: $.advocates.*.documents.*.id
-            - jsonPath: $.advocates.*.documents.*.tenantId
             - jsonPath: $.advocates.*.documents.*.documentType
             - jsonPath: $.advocates.*.documents.*.fileStore
             - jsonPath: $.advocates.*.documents.*.documentUid

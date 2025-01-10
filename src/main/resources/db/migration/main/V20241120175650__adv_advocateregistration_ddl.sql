@@ -1,6 +1,6 @@
 CREATE TABLE eg_advocate_registration(
-  id character varying(36),
-  tenant_id character varying(128),
+  id character varying(36) NOT NULL,
+  tenant_id character varying(128) NOT NULL,
   application_number character varying(64),
   bar_registration_number character varying(64),
   advocate_type character varying(64),
@@ -12,12 +12,12 @@ CREATE TABLE eg_advocate_registration(
   last_modified_by character varying(64),
   created_time bigint,
   last_modified_time bigint,
- CONSTRAINT pk_eg_advocate_registration PRIMARY KEY (id)
+  CONSTRAINT pk_eg_advocate_registration PRIMARY KEY (id)
 );
 
 CREATE TABLE eg_advocate_clerk_registration(
-  id character varying(36),
-  tenant_id character varying(128),
+  id character varying(36) NOT NULL,
+  tenant_id character varying(128) NOT NULL,
   application_number character varying(64),
   state_regn_number character varying(64),
   individual_id character varying,
@@ -27,14 +27,13 @@ CREATE TABLE eg_advocate_clerk_registration(
   last_modified_by character varying(64),
   created_time bigint,
   last_modified_time bigint,
- CONSTRAINT pk_eg_advocate_clerk_registration PRIMARY KEY (id)
+  CONSTRAINT pk_eg_advocate_clerk_registration PRIMARY KEY (id)
 );
 
 CREATE TABLE eg_adv_document(
-    id character varying(64),
-    tenant_id character varying(64),
+    id character varying(36) NOT NULL,
     document_type character varying(64),
-    file_store character varying(64),
+    file_store character varying(128),
     document_uid character varying(64),
     additional_details JSONB,
     advocate_id character varying(36),
@@ -43,7 +42,6 @@ CREATE TABLE eg_adv_document(
     last_modified_by character varying(64),
     created_time bigint,
     last_modified_time bigint,
-
     CONSTRAINT pk_eg_adv_document PRIMARY KEY (id),
     CONSTRAINT fk_eg_adv_document FOREIGN KEY (advocate_id) REFERENCES eg_advocate_registration (id),
     CONSTRAINT fk_eg_adv_clerk_document FOREIGN KEY (advocate_clerk_id) REFERENCES eg_advocate_clerk_registration (id)
