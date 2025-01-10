@@ -16,6 +16,15 @@ public class AdvocateClerkQueryBuilder {
 	private static final String FROM_TABLES = " FROM eg_advocate_clerk_registration ac LEFT JOIN eg_adv_document doc ON ac.id = doc.advocate_clerk_id ";
 	private static final String ORDERBY_CREATEDTIME = " ORDER BY ac.created_time DESC ";
 
+	/**
+     * This method constructs the SQL query to search for advocate clerk registrations
+     * based on the provided search criteria and dynamically builds the WHERE clause
+     * based on non-null search parameters.
+     *
+     * @param criteria         The search criteria containing various filters for the query.
+     * @param preparedStmtList A list to hold the prepared statement values.
+     * @return A string representing the constructed SQL query.
+     */
 	public String getAdvocateClerkRegistrationSearchQuery(AdvocateClerkSearchCriteria criteria,
 			List<Object> preparedStmtList) {
 		StringBuilder queryBuilder = new StringBuilder(BASE_ADVOCATE_CLERK_QUERY);

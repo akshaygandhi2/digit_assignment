@@ -48,4 +48,35 @@ public class ServiceConstants {
 	public static final String BUSINESS_IDS = "&businessIds=";
 	public static final String BUSINESS_SERVICES = "&businessServices=";
 
+	public static final String ADV_CREATE_EX = "ADV_CREATE_EX";
+	public static final String ADV_CREATE_ERROR = "Error occurred while creating advocate: ";
+	public static final String ADV_SEARCH_EX = "ADV_SEARCH_EX";
+	public static final String ADV_SEARCH_ERROR = "Error occurred while searching advocate: ";
+	public static final String ADV_UPDATE_EX = "ADV_UPDATE_EX";
+	public static final String ADV_UPDATE_ERROR = "Error occurred while updating advocate: ";
+	
+	public static final String CLERK_CREATE_EX = "CLERK_CREATE_EX";
+	public static final String CLERK_CREATE_ERROR = "Error occurred while creating clerk: ";
+	public static final String CLERK_SEARCH_EX = "CLERK_SEARCH_EX";
+	public static final String CLERK_SEARCH_ERROR = "Error occurred while searching clerk: ";
+	public static final String CLERK_UPDATE_EX = "CLERK_UPDATE_EX";
+	public static final String CLERK_UPDATE_ERROR = "Error occurred while updating clerk: ";
+
+	public static final String REQUEST_INFO_NOT_VALID = "REQUEST_INFO_NOT_VALID";
+	public static final String REQUEST_INFO_NOT_VALID_ERROR = "Request info or User infor are not valid";
+	
+	public static final String TENANT_ID_REQUIRED = "TENANT_ID_REQUIRED";
+	public static final String TENANT_ID_REQUIRED_ERROR = "Tenant id is mandatory for registration";
+	
+	public static final String INDIVIDUAL_ID_REQUIRED = "INDIVIDUAL_ID_REQUIRED";
+	public static final String INDIVIDUAL_ID_REQUIRED_ERROR = "Individual id is mandatory for registration";
+	
+	public static final String INDIVIDUAL_NOT_EXIST = "INDIVIDUAL_NOT_EXIST";
+	public static final String INDIVIDUAL_NOT_EXIST_ERROR = "Individual does not exist";
+	
+	public static final String ADV_NOT_EXIST = "ADV_NOT_EXIST";
+	public static final String ADV_NOT_EXIST_ERROR = "Advocate does not exist";
+	
+	public static final String CLERK_NOT_EXIST = "CLERK_NOT_EXIST";
+	public static final String CLERK_NOT_EXIST_ERROR = "Advocate clerk does not exist";
 }

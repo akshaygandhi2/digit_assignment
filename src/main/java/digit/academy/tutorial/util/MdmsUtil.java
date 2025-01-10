@@ -13,7 +13,6 @@ import org.egov.mdms.model.MdmsCriteria;
 import org.egov.mdms.model.MdmsCriteriaReq;
 import org.egov.mdms.model.MdmsResponse;
 import org.egov.mdms.model.ModuleDetail;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -31,13 +30,22 @@ public class MdmsUtil {
 	private final ObjectMapper mapper;
 	private final Configuration configs;
 
-	@Autowired
 	public MdmsUtil(RestTemplate restTemplate, ObjectMapper mapper, Configuration configs) {
 		this.restTemplate = restTemplate;
 		this.mapper = mapper;
 		this.configs = configs;
 	}
 
+	/**
+	 * This method fetches MDMS data from the MDMS service based on provided criteria.
+	 * It constructs the MDMS request and processes the response.
+	 *
+	 * @param requestInfo    The request information containing metadata.
+	 * @param tenantId      The tenant ID for the request.
+	 * @param moduleName    The module name for which data is to be fetched.
+	 * @param masterNameList A list of master names for the query.
+	 * @return Map<String, Map<String, JSONArray>> The MDMS response data organized by master names.
+	 */
 	public Map<String, Map<String, JSONArray>> fetchMdmsData(RequestInfo requestInfo, String tenantId,
 			String moduleName, List<String> masterNameList) {
 
@@ -54,9 +62,18 @@ public class MdmsUtil {
 		}
 
 		return mdmsResponse.getMdmsRes();
-		// log.info(ulbToCategoryListMap.toString());
 	}
 
+	/**
+	 * This method constructs the MDMS request object with the provided criteria.
+	 * It prepares a list of master details, sets the module name, and organizes the MDMS request.
+	 *
+	 * @param requestInfo    The request information containing metadata.
+	 * @param tenantId      The tenant ID for the request.
+	 * @param moduleName    The module name for which data is to be fetched.
+	 * @param masterNameList A list of master names for the query.
+	 * @return MdmsCriteriaReq The constructed MDMS request object.
+	 */
 	private MdmsCriteriaReq getMdmsRequest(RequestInfo requestInfo, String tenantId, String moduleName,
 			List<String> masterNameList) {
 

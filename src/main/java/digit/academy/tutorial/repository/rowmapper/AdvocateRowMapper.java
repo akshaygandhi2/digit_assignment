@@ -19,6 +19,16 @@ import digit.academy.tutorial.web.models.Advocate;
 @Component
 public class AdvocateRowMapper implements ResultSetExtractor<List<Advocate>> {
 
+	/**
+     * This method extracts data from the ResultSet and maps it into a list of Advocate objects.
+     * It processes the ResultSet row by row, creating Advocate objects and adding documents
+     * associated with each advocate if available.
+     *
+     * @param rs The ResultSet containing the database records.
+     * @return A list of Advocate objects, each containing their respective documents.
+     * @throws SQLException If there is an issue while accessing the ResultSet.
+     * @throws DataAccessException If there is a problem with data access.
+     */
 	@Override
 	public List<Advocate> extractData(ResultSet rs) throws SQLException, DataAccessException {
 		Map<String, Advocate> advocateRegistrationMap = new LinkedHashMap<>();
@@ -56,6 +66,13 @@ public class AdvocateRowMapper implements ResultSetExtractor<List<Advocate>> {
 		return new ArrayList<>(advocateRegistrationMap.values());
 	}
 
+	/**
+     * This method extracts document details from the ResultSet.
+     * 
+     * @param rs The ResultSet containing document-related fields.
+     * @return A Document object populated with values from the ResultSet.
+     * @throws SQLException If there is an issue accessing the ResultSet.
+     */
 	private Document getDocument(ResultSet rs) throws SQLException {
 		return Document.builder().id(rs.getString("doc_id")).documentType(rs.getString("document_type"))
 				.fileStore(rs.getString("file_store")).documentUid(rs.getString("document_uid"))

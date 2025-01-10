@@ -1,5 +1,7 @@
 package digit.academy.tutorial.validators;
 
+import static digit.academy.tutorial.config.ServiceConstants.*;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -30,24 +32,23 @@ public class AdvocateClerkRegistrationValidator {
 	 * Validates the registration details of advocate clerks. Ensures tenant and
 	 * individual IDs are provided and verifies their existence.
 	 *
-	 * @param advocateClerkRequest The request object containing clerks' details to validate.
+	 * @param advocateClerkRequest The request object containing clerks' details to
+	 *                             validate.
 	 */
 	public void validateAdvocateClerkRegistration(AdvocateClerkRequest advocateClerkRequest) {
 		RequestInfo requestInfo = advocateClerkRequest.getRequestInfo();
 		if (ObjectUtils.isEmpty(requestInfo) || ObjectUtils.isEmpty(requestInfo.getUserInfo())) {
-			throw new CustomException("REQUEST_INFO_NOT_VALID", "Request info or User infor are not valid");
+			throw new CustomException(REQUEST_INFO_NOT_VALID, REQUEST_INFO_NOT_VALID_ERROR);
 		}
 
 		List<AdvocateClerk> clerks = advocateClerkRequest.getClerks();
 		clerks.forEach(advocateClerk -> {
 			if (ObjectUtils.isEmpty(advocateClerk.getTenantId())) {
-				throw new CustomException("TENANT_ID_REQUIRED",
-						"Tenant id is mandatory for advocate clerk registration.");
+				throw new CustomException(TENANT_ID_REQUIRED, TENANT_ID_REQUIRED_ERROR);
 			}
 
 			if (ObjectUtils.isEmpty(advocateClerk.getIndividualId())) {
-				throw new CustomException("INDIVIDUAL_ID_REQUIRED",
-						"Individual id is mandatory for advocate clerk registration.");
+				throw new CustomException(INDIVIDUAL_ID_REQUIRED, INDIVIDUAL_ID_REQUIRED_ERROR);
 			}
 		});
 
@@ -58,7 +59,7 @@ public class AdvocateClerkRegistrationValidator {
 		boolean isIndividualExist = individualService.isIndividualExist(individualIds, requestInfo,
 				clerks.get(0).getTenantId());
 		if (!isIndividualExist) {
-			throw new CustomException("INDIVIDUAL_NOT_EXIST", "Individual does not exist");
+			throw new CustomException(INDIVIDUAL_NOT_EXIST, INDIVIDUAL_NOT_EXIST_ERROR);
 		}
 	}
 
@@ -76,7 +77,7 @@ public class AdvocateClerkRegistrationValidator {
 				.stream().findFirst().orElse(null);
 
 		if (existingClerk == null) {
-			throw new CustomException("CLERK_NOT_EXIST", "Advocate clerk does not exist");
+			throw new CustomException(CLERK_NOT_EXIST, CLERK_NOT_EXIST_ERROR);
 		}
 		return existingClerk;
 	}

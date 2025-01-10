@@ -1,5 +1,7 @@
 package digit.academy.tutorial.service;
 
+import static digit.academy.tutorial.config.ServiceConstants.*;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +77,7 @@ public class AdvocateService {
 
 		} catch (Exception e) {
 			log.error("Error occurred while creating advocate :: {}", e.toString());
-			throw new CustomException("ADV_CREATE_EX", e.getMessage());
+			throw new CustomException(ADV_CREATE_EX, ADV_CREATE_ERROR + e.getMessage());
 		}
 	}
 
@@ -113,7 +115,7 @@ public class AdvocateService {
 
 		} catch (Exception e) {
 			log.error("Error while fetching to search results : {}", e.toString());
-			throw new CustomException("ADV_SEARCH_EX", e.getMessage());
+			throw new CustomException(ADV_SEARCH_EX, ADV_SEARCH_ERROR + e.getMessage());
 		}
 	}
 
@@ -161,7 +163,7 @@ public class AdvocateService {
 
 		} catch (Exception e) {
 			log.error("Error occurred while updating advocate :: {}", e.toString());
-			throw new CustomException("ADV_UPDATE_EX", "Error occurred while updating advocate: " + e.getMessage());
+			throw new CustomException(ADV_UPDATE_EX, ADV_UPDATE_ERROR + e.getMessage());
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package digit.academy.tutorial.validators;
 
+import static digit.academy.tutorial.config.ServiceConstants.*;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -38,18 +40,17 @@ public class AdvocateRegistrationValidator {
 	public void validateAdvocateRegistration(AdvocateRequest advocateRequest) {
 		RequestInfo requestInfo = advocateRequest.getRequestInfo();
 		if (ObjectUtils.isEmpty(requestInfo) || requestInfo.getUserInfo() == null) {
-			throw new CustomException("REQUEST_INFO_NOT_VALID", "Request info or User infor are not valid");
+			throw new CustomException(REQUEST_INFO_NOT_VALID, REQUEST_INFO_NOT_VALID_ERROR);
 		}
 
 		List<Advocate> advocates = advocateRequest.getAdvocates();
 		advocates.forEach(advocate -> {
 			if (ObjectUtils.isEmpty(advocate.getTenantId())) {
-				throw new CustomException("TENANT_ID_REQUIRED", "Tenant id is mandatory for advocate registration");
+				throw new CustomException(TENANT_ID_REQUIRED, TENANT_ID_REQUIRED_ERROR);
 			}
 
 			if (ObjectUtils.isEmpty(advocate.getIndividualId())) {
-				throw new CustomException("INDIVIDUAL_ID_REQUIRED",
-						"Individual id is mandatory for advocate registration");
+				throw new CustomException(INDIVIDUAL_ID_REQUIRED, INDIVIDUAL_ID_REQUIRED_ERROR);
 			}
 		});
 
@@ -60,7 +61,7 @@ public class AdvocateRegistrationValidator {
 		boolean isIndividualExist = individualService.isIndividualExist(individualIds, requestInfo,
 				advocates.get(0).getTenantId());
 		if (!isIndividualExist) {
-			throw new CustomException("INDIVIDUAL_NOT_EXIST", "Individual does not exist");
+			throw new CustomException(INDIVIDUAL_NOT_EXIST, INDIVIDUAL_NOT_EXIST_ERROR);
 		}
 	}
 
@@ -78,7 +79,7 @@ public class AdvocateRegistrationValidator {
 				.applicationNumber(advocate.getApplicationNumber()).build()).stream().findFirst().orElse(null);
 
 		if (existingAdvocate == null) {
-			throw new CustomException("ADV_NOT_EXIST", "Advocate does not exist");
+			throw new CustomException(ADV_NOT_EXIST, ADV_NOT_EXIST_ERROR);
 		}
 		return existingAdvocate;
 	}

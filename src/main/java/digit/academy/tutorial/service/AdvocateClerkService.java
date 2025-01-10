@@ -1,5 +1,12 @@
 package digit.academy.tutorial.service;
 
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_CREATE_EX;
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_CREATE_ERROR;
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_SEARCH_EX;
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_SEARCH_ERROR;
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_UPDATE_EX;
+import static digit.academy.tutorial.config.ServiceConstants.CLERK_UPDATE_ERROR;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -47,11 +54,12 @@ public class AdvocateClerkService {
 	}
 
 	/**
-	 * Registers an advocate clerk based on the provided request.
-	 * This method validates the registration, enriches the data, updates workflow status, 
-	 * and pushes the registration to a Kafka topic for persistence.
+	 * Registers an advocate clerk based on the provided request. This method
+	 * validates the registration, enriches the data, updates workflow status, and
+	 * pushes the registration to a Kafka topic for persistence.
 	 *
-	 * @param clerkRequest The request containing advocate clerk details and metadata.
+	 * @param clerkRequest The request containing advocate clerk details and
+	 *                     metadata.
 	 * @return List of AdvocateClerk objects that were successfully registered.
 	 */
 	public List<AdvocateClerk> registerAdvocateClerkRequest(AdvocateClerkRequest clerkRequest) {
@@ -74,16 +82,18 @@ public class AdvocateClerkService {
 			throw e;
 
 		} catch (Exception e) {
-			log.error("Error while fetching to search results : {}", e.toString());
-			throw new CustomException("ADV_CREATE_EX", e.getMessage());
+			log.error("Error occured while creating clerk : {}", e.toString());
+			throw new CustomException(CLERK_CREATE_EX, CLERK_CREATE_ERROR + e.getMessage());
 		}
 	}
 
 	/**
-	 * Searches for advocate clerk registrations based on the provided search criteria.
-	 * This method fetches advocate clerk details, retrieves their workflow status, and returns the list of clerks.
+	 * Searches for advocate clerk registrations based on the provided search
+	 * criteria. This method fetches advocate clerk details, retrieves their
+	 * workflow status, and returns the list of clerks.
 	 *
-	 * @param searchRequest The request containing search criteria for advocate clerks.
+	 * @param searchRequest The request containing search criteria for advocate
+	 *                      clerks.
 	 * @return List of AdvocateClerk objects that match the search criteria.
 	 */
 	public List<AdvocateClerk> searchAdvocateClerkRegistration(AdvocateClerkSearchRequest searchRequest) {
@@ -110,18 +120,19 @@ public class AdvocateClerkService {
 			throw e;
 
 		} catch (Exception e) {
-			log.error("Error while fetching to search results : {}", e.toString());
-			throw new CustomException("ADV_SEARCH_EX", e.getMessage());
+			log.error("Error occured while searching clerk : {}", e.toString());
+			throw new CustomException(CLERK_SEARCH_EX, CLERK_SEARCH_ERROR + e.getMessage());
 		}
 	}
 
 	/**
-	 * Updates the registration details for an advocate clerk.
-	 * This method validates the clerk existence, updates the clerk details, enriches the data,
-	 * updates the workflow status, and pushes the updated registration to a Kafka topic.
-	 * If the clerk is activated, it sends a notification.
+	 * Updates the registration details for an advocate clerk. This method validates
+	 * the clerk existence, updates the clerk details, enriches the data, updates
+	 * the workflow status, and pushes the updated registration to a Kafka topic. If
+	 * the clerk is activated, it sends a notification.
 	 *
-	 * @param clerkRequest The request containing advocate clerk details and metadata.
+	 * @param clerkRequest The request containing advocate clerk details and
+	 *                     metadata.
 	 * @return The updated AdvocateClerk object.
 	 */
 	public AdvocateClerk updateAdvocateClerkRegistration(AdvocateClerkRequest clerkRequest) {
@@ -154,8 +165,8 @@ public class AdvocateClerkService {
 			throw e;
 
 		} catch (Exception e) {
-			log.error("Error while fetching to search results : {}", e.toString());
-			throw new CustomException("ADV_UPDATE_EX", e.getMessage());
+			log.error("Error occured while updating clerk : {}", e.toString());
+			throw new CustomException(CLERK_UPDATE_EX, CLERK_UPDATE_ERROR + e.getMessage());
 		}
 	}
 }
