@@ -3,7 +3,6 @@ package digit.academy.tutorial.repository.querybuilder;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import digit.academy.tutorial.util.QueryBuilderUtil;
@@ -17,13 +16,6 @@ public class AdvocateClerkQueryBuilder {
 	private static final String FROM_TABLES = " FROM eg_advocate_clerk_registration ac LEFT JOIN eg_adv_document doc ON ac.id = doc.advocate_clerk_id ";
 	private static final String ORDERBY_CREATEDTIME = " ORDER BY ac.created_time DESC ";
 
-	private final QueryBuilderUtil queryBuilderUtil;
-
-	@Autowired
-	public AdvocateClerkQueryBuilder(QueryBuilderUtil queryBuilderUtil) {
-		this.queryBuilderUtil = queryBuilderUtil;
-	}
-
 	public String getAdvocateClerkRegistrationSearchQuery(AdvocateClerkSearchCriteria criteria,
 			List<Object> preparedStmtList) {
 		StringBuilder queryBuilder = new StringBuilder(BASE_ADVOCATE_CLERK_QUERY);
@@ -33,7 +25,7 @@ public class AdvocateClerkQueryBuilder {
 		Map<String, Object> conditionMap = Map.of("ac.id", criteria.getId(), "ac.application_number",
 				criteria.getApplicationNumber(), "ac.state_regn_number", criteria.getStateRegnNumber());
 
-		queryBuilderUtil.buildWhereClause(queryBuilder, preparedStmtList, conditionMap);
+		QueryBuilderUtil.buildWhereClause(queryBuilder, preparedStmtList, conditionMap);
 		queryBuilder.append(ORDERBY_CREATEDTIME);
 		return queryBuilder.toString();
 	}
