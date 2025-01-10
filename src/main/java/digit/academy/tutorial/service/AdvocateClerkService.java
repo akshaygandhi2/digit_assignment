@@ -14,7 +14,7 @@ import org.springframework.util.CollectionUtils;
 import digit.academy.tutorial.config.Configuration;
 import digit.academy.tutorial.enrichment.AdvocateClerkEnrichment;
 import digit.academy.tutorial.kafka.Producer;
-import digit.academy.tutorial.repository.AdvocateClerkRepository;
+import digit.academy.tutorial.repository.AdvocateClerkRepositoryImpl;
 import digit.academy.tutorial.util.WorkflowUtil;
 import digit.academy.tutorial.validators.AdvocateClerkRegistrationValidator;
 import digit.academy.tutorial.web.models.AdvocateClerk;
@@ -30,12 +30,12 @@ public class AdvocateClerkService {
 	private final AdvocateClerkEnrichment enrichment;
 	private final Producer producer;
 	private final Configuration configuration;
-	private final AdvocateClerkRepository advocateClerkRepo;
+	private final AdvocateClerkRepositoryImpl advocateClerkRepo;
 	private final WorkflowUtil workflowUtil;
 	private final SmsNotificationService smsNotificationService;
 
 	public AdvocateClerkService(AdvocateClerkRegistrationValidator validator, AdvocateClerkEnrichment enrichment,
-			Producer producer, Configuration configuration, AdvocateClerkRepository advocateClerkRepo,
+			Producer producer, Configuration configuration, AdvocateClerkRepositoryImpl advocateClerkRepo,
 			WorkflowUtil workflowUtil, SmsNotificationService smsNotificationService) {
 		this.validator = validator;
 		this.enrichment = enrichment;

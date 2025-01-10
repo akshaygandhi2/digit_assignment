@@ -8,7 +8,7 @@ import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
 import org.springframework.stereotype.Component;
 
-import digit.academy.tutorial.repository.AdvocateClerkRepository;
+import digit.academy.tutorial.repository.AdvocateClerkRepositoryImpl;
 import digit.academy.tutorial.service.IndividualService;
 import digit.academy.tutorial.web.models.AdvocateClerk;
 import digit.academy.tutorial.web.models.AdvocateClerkRequest;
@@ -17,10 +17,10 @@ import digit.academy.tutorial.web.models.AdvocateClerkSearchCriteria;
 @Component
 public class AdvocateClerkRegistrationValidator {
 
-	private final AdvocateClerkRepository advocateClerkRepo;
+	private final AdvocateClerkRepositoryImpl advocateClerkRepo;
 	private final IndividualService individualService;
 
-	public AdvocateClerkRegistrationValidator(AdvocateClerkRepository advocateClerkRepo,
+	public AdvocateClerkRegistrationValidator(AdvocateClerkRepositoryImpl advocateClerkRepo,
 			IndividualService individualService) {
 		this.advocateClerkRepo = advocateClerkRepo;
 		this.individualService = individualService;

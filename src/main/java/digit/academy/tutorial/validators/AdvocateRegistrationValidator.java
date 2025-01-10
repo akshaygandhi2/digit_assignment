@@ -26,12 +26,14 @@ public class AdvocateRegistrationValidator {
 	}
 
 	/**
-	 * Validates the advocate registration request by checking mandatory fields 
-	 * and verifying the existence of individuals associated with the advocates.
+	 * Validates the advocate registration request by checking mandatory fields and
+	 * verifying the existence of individuals associated with the advocates.
 	 *
-	 * @param advocateRequest the request containing advocate details and request info
+	 * @param advocateRequest the request containing advocate details and request
+	 *                        info
 	 * @throws CustomException if request info is invalid, tenant ID is missing,
-	 *                         individual ID is missing, or the individual does not exist
+	 *                         individual ID is missing, or the individual does not
+	 *                         exist
 	 */
 	public void validateAdvocateRegistration(AdvocateRequest advocateRequest) {
 		RequestInfo requestInfo = advocateRequest.getRequestInfo();
@@ -63,7 +65,8 @@ public class AdvocateRegistrationValidator {
 	}
 
 	/**
-	 * Validates whether an advocate already exists in the system based on the given criteria.
+	 * Validates whether an advocate already exists in the system based on the given
+	 * criteria.
 	 *
 	 * @param advocate the advocate whose existence needs to be validated
 	 * @return the existing advocate if found

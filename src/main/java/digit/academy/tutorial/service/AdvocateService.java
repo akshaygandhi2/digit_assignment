@@ -47,15 +47,13 @@ public class AdvocateService {
 	}
 
 	/**
-     * Handles the registration of advocates.
-     * 1. Validates the input request.
-     * 2. Enriches the request data for processing.
-     * 3. Updates workflow status.
-     * 4. Publishes the registration request to Kafka for persistence.
-     *
-     * @param advocateRequest The advocate registration request object.
-     * @return List of registered advocates.
-     */
+	 * Handles the registration of advocates. 1. Validates the input request. 2.
+	 * Enriches the request data for processing. 3. Updates workflow status. 4.
+	 * Publishes the registration request to Kafka for persistence.
+	 *
+	 * @param advocateRequest The advocate registration request object.
+	 * @return List of registered advocates.
+	 */
 	public List<Advocate> registerAdvocateRequest(AdvocateRequest advocateRequest) {
 		try {
 			// Validate registration
@@ -82,14 +80,15 @@ public class AdvocateService {
 	}
 
 	/**
-     * Searches for advocate registrations based on criteria.
-     * 1. Retrieves advocates from the repository matching the criteria.
-     * 2. Fetches workflow process instances for the retrieved advocates.
-     * 3. Maps the workflow details back to the corresponding advocates.
-     *
-     * @param searchRequest The advocate search request object containing search criteria.
-     * @return List of advocates matching the search criteria.
-     */
+	 * Searches for advocate registrations based on criteria. 1. Retrieves advocates
+	 * from the repository matching the criteria. 2. Fetches workflow process
+	 * instances for the retrieved advocates. 3. Maps the workflow details back to
+	 * the corresponding advocates.
+	 *
+	 * @param searchRequest The advocate search request object containing search
+	 *                      criteria.
+	 * @return List of advocates matching the search criteria.
+	 */
 	public List<Advocate> searchAdvocateRegistration(AdvocateSearchRequest searchRequest) {
 		try {
 			List<Advocate> advocateList = searchRequest.getCriteria().stream().map(advocateRepo::getAdvocates)
@@ -119,17 +118,15 @@ public class AdvocateService {
 	}
 
 	/**
-     * Updates the registration details of an advocate.
-     * 1. Validates the existence of the advocate.
-     * 2. Updates the existing advocate details.
-     * 3. Enriches the updated advocate data.
-     * 4. Updates workflow status.
-     * 5. Publishes the update request to Kafka for persistence.
-     * 6. Sends SMS notifications if the advocate is activated.
-     *
-     * @param advocateRequest The advocate update request object.
-     * @return The updated advocate object.
-     */
+	 * Updates the registration details of an advocate. 1. Validates the existence
+	 * of the advocate. 2. Updates the existing advocate details. 3. Enriches the
+	 * updated advocate data. 4. Updates workflow status. 5. Publishes the update
+	 * request to Kafka for persistence. 6. Sends SMS notifications if the advocate
+	 * is activated.
+	 *
+	 * @param advocateRequest The advocate update request object.
+	 * @return The updated advocate object.
+	 */
 	public Advocate updateAdvocateRegistration(AdvocateRequest advocateRequest) {
 		try {
 			Advocate advocate = advocateRequest.getAdvocates().get(0);
