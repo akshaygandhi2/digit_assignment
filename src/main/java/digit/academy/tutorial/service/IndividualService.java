@@ -28,28 +28,30 @@ public class IndividualService {
 	}
 
 	/**
-	 * Checks if an individual exists based on the provided list of IDs.
-	 * This method searches for the individuals by their IDs and returns true if any individual exists,
-	 * otherwise false.
+	 * Checks if an individual exists based on the provided list of IDs. This method
+	 * searches for the individuals by their IDs and returns true if any individual
+	 * exists, otherwise false.
 	 *
-	 * @param ids        The list of individual IDs to be checked.
-	 * @param requestInfo Information about the request (such as user and request context).
-	 * @param tenantId   The tenant ID associated with the individuals.
+	 * @param ids         The list of individual IDs to be checked.
+	 * @param requestInfo Information about the request (such as user and request
+	 *                    context).
+	 * @param tenantId    The tenant ID associated with the individuals.
 	 * @return true if individuals are found, false otherwise.
 	 */
 	public boolean isIndividualExist(List<String> ids, RequestInfo requestInfo, String tenantId) {
 		List<Individual> individuals = searchIndividuals(ids, requestInfo, tenantId);
-		return !CollectionUtils.isEmpty(individuals) && individuals.size() > 0;
+		return !CollectionUtils.isEmpty(individuals) && !individuals.isEmpty();
 	}
 
 	/**
-	 * Searches for individuals based on the provided list of IDs.
-	 * This method interacts with an external service to fetch individual details and maps the response
-	 * into a list of Individual objects.
+	 * Searches for individuals based on the provided list of IDs. This method
+	 * interacts with an external service to fetch individual details and maps the
+	 * response into a list of Individual objects.
 	 *
-	 * @param ids        The list of individual IDs to search for.
-	 * @param requestInfo Information about the request (such as user and request context).
-	 * @param tenantId   The tenant ID associated with the individuals.
+	 * @param ids         The list of individual IDs to search for.
+	 * @param requestInfo Information about the request (such as user and request
+	 *                    context).
+	 * @param tenantId    The tenant ID associated with the individuals.
 	 * @return A list of Individual objects corresponding to the provided IDs.
 	 */
 	public List<Individual> searchIndividuals(List<String> ids, RequestInfo requestInfo, String tenantId) {
